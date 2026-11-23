@@ -1,18 +1,13 @@
 
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
+import Login from "../pages/auth/Login";
+import Register from "../pages/auth/Register";
 
 function Home() {
   return <h1>Welcome to EasyBooking</h1>;
 }
 
-function Login() {
-  return <h1>Login Page</h1>;
-}
-
-function Register() {
-  return <h1>Register Page</h1>;
-}
 
 function CustomerDashboard() {
   return <h1>Customer Dashboard</h1>;
@@ -34,10 +29,13 @@ function AppRoutes() {
   return (
     <Routes>
 
+      {/* Authentication Pages */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+
+      {/* Main Website */}
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
       </Route>
 
       <Route path="/customer/dashboard" element={<CustomerDashboard />} />
